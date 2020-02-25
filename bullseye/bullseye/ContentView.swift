@@ -14,6 +14,7 @@ struct ContentView: View {
     @State var sliderValue = 50.0
     @State var targetValue = Int.random(in: 1...100)
     @State var userScore = 0
+    @State var currentRound = 1
     
     var body: some View {
         VStack {
@@ -47,6 +48,7 @@ struct ContentView: View {
                         let intSliderValue = self.roundedSliderValue()
                         self.userScore += self.pointsForCurrentRound(sliderValue: intSliderValue)
                         self.targetValue = Int.random(in: 1...100)
+                        self.currentRound += 1
                     })
             }
             
@@ -61,7 +63,7 @@ struct ContentView: View {
                 Text("\(userScore)")
                 Spacer()
                 Text("Round:")
-                Text("999")
+                Text("\(currentRound)")
                 Spacer()
                 Button(action: {}) {
                     Text("Info")
