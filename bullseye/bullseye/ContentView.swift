@@ -8,6 +8,31 @@
 
 import SwiftUI
 
+struct textStyle: ViewModifier {
+    func body(content: Content) -> some View {
+        return content
+            .foregroundColor(Color.white)
+            .font(Font.custom("Arial Rounded MT Bold", size: 18))
+            .modifier(shadowStyle())
+    }
+}
+
+struct valueStyle: ViewModifier {
+    func body(content: Content) -> some View {
+        return content
+            .foregroundColor(Color.yellow)
+            .font(Font.custom("Arial Rounded MT Bold", size: 24))
+            .modifier(shadowStyle())
+    }
+}
+
+struct shadowStyle: ViewModifier {
+    func body(content: Content) -> some View {
+        return content
+            .shadow(color: Color.black, radius: 5, x: 2, y: 2)
+    }
+}
+
 struct ContentView: View {
     
     @State var alertIsVisible = false
@@ -21,16 +46,17 @@ struct ContentView: View {
             Spacer()
             //Target row
             HStack {
-                Text("Put the bullseye as close as you can to:")
-                Text("\(targetValue)")
+                Text("Put the bullseye as close as you can to:").modifier(textStyle())
+                
+                Text("\(targetValue)").modifier(valueStyle())
             }
             
             Spacer()
             //Slider row
             HStack {
-                Text("1")
+                Text("1").modifier(textStyle())
                 Slider(value: $sliderValue, in: 1...100)
-                Text("100")
+                Text("100").modifier(textStyle())
             }
             
             Spacer()
@@ -60,11 +86,11 @@ struct ContentView: View {
                     Text("Start over")
                 }
                 Spacer()
-                Text("Score:")
-                Text("\(userScore)")
+                Text("Score:").modifier(textStyle())
+                Text("\(userScore)").modifier(valueStyle())
                 Spacer()
-                Text("Round:")
-                Text("\(currentRound)")
+                Text("Round:").modifier(textStyle())
+                Text("\(currentRound)").modifier(valueStyle())
                 Spacer()
                 Button(action: {}) {
                     Text("Info")
@@ -73,6 +99,7 @@ struct ContentView: View {
             .padding(.bottom, 20)
             
         }
+        .background(Image("Background"), alignment: .center)
     }
     
     func roundedSliderValue() -> Int {
