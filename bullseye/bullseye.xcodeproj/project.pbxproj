@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		314224342405E38D00B007CC /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314224332405E38D00B007CC /* AboutView.swift */; };
 		31783CF023F487E600955F36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31783CEF23F487E600955F36 /* AppDelegate.swift */; };
 		31783CF223F487E600955F36 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31783CF123F487E600955F36 /* SceneDelegate.swift */; };
 		31783CF423F487E600955F36 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31783CF323F487E600955F36 /* ContentView.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		314224332405E38D00B007CC /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		31783CEC23F487E600955F36 /* bullseye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bullseye.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31783CEF23F487E600955F36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31783CF123F487E600955F36 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				31783CEF23F487E600955F36 /* AppDelegate.swift */,
 				31783CF123F487E600955F36 /* SceneDelegate.swift */,
 				31783CF323F487E600955F36 /* ContentView.swift */,
+				314224332405E38D00B007CC /* AboutView.swift */,
 				31783CF523F487EB00955F36 /* Assets.xcassets */,
 				31783CFA23F487EB00955F36 /* LaunchScreen.storyboard */,
 				31783CFD23F487EB00955F36 /* Info.plist */,
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31783CF023F487E600955F36 /* AppDelegate.swift in Sources */,
+				314224342405E38D00B007CC /* AboutView.swift in Sources */,
 				31783CF223F487E600955F36 /* SceneDelegate.swift in Sources */,
 				31783CF423F487E600955F36 /* ContentView.swift in Sources */,
 			);
