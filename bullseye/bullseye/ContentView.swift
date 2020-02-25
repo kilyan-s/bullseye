@@ -9,6 +9,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var alertIsVisible: Bool = false
+    
     var body: some View {
         VStack {
             Text("Hello, World!")
@@ -17,8 +20,13 @@ struct ContentView: View {
                 .multilineTextAlignment(.center)
             Button(action: {
                 print("Button was pressed")
+                self.alertIsVisible = true
             }) {
                 Text(/*@START_MENU_TOKEN@*/"Hit me"/*@END_MENU_TOKEN@*/)
+            }
+            .alert(isPresented: $alertIsVisible) { () -> Alert in
+                return Alert(title: Text("Hello there"), message: Text("This is my first popup"), dismissButton: .default(Text("Awesome")))
+                
             }
         }
     }
