@@ -37,16 +37,17 @@ struct ContentView: View {
             Button(action: {
                 print("Button was pressed")
                 self.alertIsVisible = true
-                
-                let intSliderValue = self.roundedSliderValue()
-                self.userScore += self.pointsForCurrentRound(sliderValue: intSliderValue)
             }) {
                 Text("Hit me")
             }
             .alert(isPresented: $alertIsVisible) { () -> Alert in
                 let intSliderValue = roundedSliderValue()
                 let score = pointsForCurrentRound(sliderValue: intSliderValue)
-                return Alert(title: Text("Hello there"), message: Text("The slider's value is \(intSliderValue).\nYou scored \(score) points this round."), dismissButton: .default(Text("Awesome")))
+                return Alert(title: Text("Hello there"), message: Text("The slider's value is \(intSliderValue).\nYou scored \(score) points this round."), dismissButton: .default(Text("Awesome")) {
+                        let intSliderValue = self.roundedSliderValue()
+                        self.userScore += self.pointsForCurrentRound(sliderValue: intSliderValue)
+                        self.targetValue = Int.random(in: 1...100)
+                    })
             }
             
             Spacer()
