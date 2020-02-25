@@ -43,10 +43,9 @@ struct ContentView: View {
             }
             .alert(isPresented: $alertIsVisible) { () -> Alert in
                 let intSliderValue = roundedSliderValue()
-                let score = pointsForCurrentRound(sliderValue: intSliderValue)
-                return Alert(title: Text("Hello there"), message: Text("The slider's value is \(intSliderValue).\nYou scored \(score) points this round."), dismissButton: .default(Text("Awesome")) {
-                        let intSliderValue = self.roundedSliderValue()
-                        self.userScore += self.pointsForCurrentRound(sliderValue: intSliderValue)
+                let score = pointsForCurrentRound()
+                return Alert(title: Text(alertTitle()), message: Text("The slider's value is \(intSliderValue).\nYou scored \(score) points this round."), dismissButton: .default(Text("Awesome")) {
+                        self.userScore += self.pointsForCurrentRound()
                         self.targetValue = Int.random(in: 1...100)
                         self.currentRound += 1
                     })
@@ -78,10 +77,29 @@ struct ContentView: View {
         return Int(self.sliderValue.rounded())
     }
     
-    func pointsForCurrentRound(sliderValue: Int) -> Int {
-        let diff = sliderValue - targetValue
-        let points = 100 - abs(diff)
+    func amountOff() -> Int {
+        return abs(roundedSliderValue() - targetValue)
+    }
+    
+    func pointsForCurrentRound() -> Int {
+        let diff = amountOff()
+        let points = 100 - diff
         return points
+    }
+    
+    func alertTitle() -> String {
+        let diff = amountOff()
+        let title: String
+        if diff == 0 {
+            title = "Perfect"
+        } else if diff <= 5 {
+            title = "You almost had it"
+        } else if diff <= 10 {
+            title = "Not bad"
+        } else {
+            title = "Are you even trying ?"
+        }
+        return title
     }
 }
 
