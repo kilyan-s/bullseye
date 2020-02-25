@@ -54,7 +54,9 @@ struct ContentView: View {
             Spacer()
             //Score row
             HStack {
-                Button(action: {}) {
+                Button(action: {
+                    self.startOverAction()
+                }) {
                     Text("Start over")
                 }
                 Spacer()
@@ -110,6 +112,13 @@ struct ContentView: View {
             title = "Are you even trying ?"
         }
         return title
+    }
+    
+    func startOverAction() {
+        sliderValue = 50.0
+        targetValue = Int.random(in: 1...100)
+        userScore = 0
+        currentRound = 1
     }
 }
 
